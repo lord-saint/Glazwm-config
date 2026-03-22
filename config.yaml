@@ -60,7 +60,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#ffffffff'
+      color: '#FF0000' 
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -72,7 +72,7 @@ window_effects:
     corner_style:
       enabled: false
       # Allowed values: 'square', 'rounded', 'small_rounded'.
-      style: 'square'
+      style: 'small_rounded'
 
     # Change the transparency of the window.
     transparency:
@@ -121,16 +121,16 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: "󰈹"
+    #display_name: "󰈹"
     keep_alive: true
   - name: "2"
-    display_name: "󰨞"
+    #display_name: "󰨞"
     keep_alive: true
   - name: "3"
-    display_name: "󰙯"
+    #display_name: "󰙯"
     keep_alive: true
   - name: "4"
-    display_name: ""  
+    #display_name: ""  
     keep_alive: true
   - name: "5"
   - name: "6"
@@ -246,19 +246,19 @@ keybindings:
   # Applications
   - commands: ['shell-exec wt']
     bindings: ['alt+enter']
-  - commands: ['shell-exec powershell']  # Windows Terminal
+  - commands: ['shell-exec powershell Start-Process powershell -Verb RunAs']
     bindings: ['alt+shift+enter']
   - commands: ['shell-exec explorer']  # File Explorer
     bindings: ['alt+e']
   - commands: ['shell-exec brave']  # Browser (change to your preferred) 
     bindings: ['alt+b']
-  - commands: ['shell-exec --hide-window code']
+  - commands: ['shell-exec code']
     bindings: ['alt+c']
   - commands: ['shell-exec spotify:']
     bindings: ['alt+s']
-  - commands: ['shell-exec cmd /c start https://chat.deepseek.com/']
+  - commands: ['shell-exec cmd /c start brave --new-window https://chat.deepseek.com/']
     bindings: ['alt+a']
-  - commands: ['shell-exec cmd /c start https://www.youtube.com/feed/subscriptions']
+  - commands: ['shell-exec cmd /c start brave --new-window https://www.youtube.com/feed/playlists']
     bindings: ['alt+y']
   - commands: ['shell-exec whatsapp:']
     bindings: ['alt+w']
