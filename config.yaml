@@ -60,7 +60,7 @@ window_effects:
     # ** Exclusive to Windows 11 due to API limitations.
     border:
       enabled: true
-      color: '#FF0000' 
+      color: '#ffffff' 
 
     # Remove the title bar from the window's frame. Note that this can
     # cause rendering issues for some applications.
@@ -139,6 +139,7 @@ workspaces:
   - name: "9"
 
 window_rules:
+
   - commands: ["set-floating"]
     match:
       - window_process: { regex: "(?i)spotify" }
@@ -148,6 +149,8 @@ window_rules:
 
   - commands: ['ignore']
     match:
+      - window_process: {equals: "GoogleDriveFS"}
+        window_title: {regex: ".*GoogleDriveFS.*"}
       - window_process: { equals: 'zebar' }
       - window_title: { regex: '[Pp]icture\.in\.[Pp]icture' }          # Dots escaped
         window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
@@ -246,20 +249,18 @@ keybindings:
   # Applications
   - commands: ['shell-exec wt']
     bindings: ['alt+enter']
-  - commands: ['shell-exec powershell Start-Process powershell -Verb RunAs']
-    bindings: ['alt+shift+enter']
   - commands: ['shell-exec explorer']  # File Explorer
     bindings: ['alt+e']
   - commands: ['shell-exec brave']  # Browser (change to your preferred) 
     bindings: ['alt+b']
   - commands: ['shell-exec code']
     bindings: ['alt+c']
-  - commands: ['shell-exec spotify:']
-    bindings: ['alt+s']
-  - commands: ['shell-exec cmd /c start brave --new-window https://chat.deepseek.com/']
-    bindings: ['alt+a']
-  - commands: ['shell-exec cmd /c start brave --new-window https://www.youtube.com/feed/playlists']
-    bindings: ['alt+y']
+  - commands: ["shell-exec %APPDATA%\\Spotify\\Spotify.exe"]
+    bindings: ["alt+s"]
+  # - commands: ['shell-exec cmd /c start brave --new-window https://lord-saint.github.io/app/all.html'] how to make sites key bind in new window
+  #   bindings: ['alt+a']
+  # - commands: ['shell-exec cmd /c start brave --app=file:///C:/xampp/htdocs/Website/AI/launcher.html'] how to make site app keybind
+  #   bindings: ['alt+z']
   - commands: ['shell-exec whatsapp:']
     bindings: ['alt+w']
 
